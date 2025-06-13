@@ -6,11 +6,11 @@ import UseAuth from '../../hooks/useAuth';
 
 const MyApplications = () => {
     const {userInfo} =  UseAuth();
-    console.log(userInfo.email);
+    console.log(userInfo.accessToken);
     return (
         <div>
             <Suspense fallback={'Applications data loading...'}>
-                <ApplicationList applicatonsData={applicatonsData(userInfo.email)}></ApplicationList>
+                <ApplicationList applicatonsData={applicatonsData(userInfo.email, userInfo.accessToken)}></ApplicationList>
             </Suspense>
         </div>
     );
